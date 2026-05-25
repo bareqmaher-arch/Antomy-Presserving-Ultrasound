@@ -161,7 +161,7 @@ If you use this code, please cite:
              Handheld Ultrasound Domain Adaptation},
   author  = {Khudhair, Karrar M. and Khudhair, Bareq M.},
   year    = {2026},
-  institution = {Iraqi Knowledge University (IKU), Baghdad, Iraq}
+  institution = {Department of Computer TechniquesEngineeringImam Al-Kadhim University College(IKC), Iraq}
 }
 ```
 
