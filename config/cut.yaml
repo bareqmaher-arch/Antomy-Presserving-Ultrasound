@@ -1,0 +1,30 @@
+model: cut
+
+generator:
+  type: resnet
+  n_blocks: 9
+  ngf: 64
+  norm: instance
+  use_dropout: false
+
+discriminator:
+  type: patchgan
+  n_layers: 3
+  ndf: 64
+  norm: instance
+
+loss_weights:
+  lambda_NCE: 1.0        # PatchNCE contrastive loss
+  lambda_idt: 0.5        # identity loss
+  lambda_anat: 0.5       # anatomy-preserving loss (key novelty)
+  lambda_adv: 1.0        # adversarial loss
+
+patchnce:
+  num_patches: 256       # patches per layer for contrastive loss
+  nce_layers: [0, 4, 8, 12, 16]  # encoder layer indices for NCE
+  nce_temperature: 0.07
+
+anatomy:
+  segmentor: unet        # unet | sam
+  seg_checkpoint: checkpoints/seg_unet.pth
+  freeze: true

@@ -1,0 +1,41 @@
+device: cuda
+seed: 42
+
+data:
+  image_size: 256
+  num_workers: 4
+  pin_memory: true
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+
+training:
+  epochs: 200
+  batch_size: 4
+  gradient_accumulation_steps: 2  # effective batch = 8
+  amp: true                        # mixed precision (fp16)
+  log_interval: 50                 # steps
+  save_interval: 10                # epochs
+  eval_interval: 5                 # epochs
+
+optimizer:
+  lr_G: 0.0002
+  lr_D: 0.0002
+  beta1: 0.5
+  beta2: 0.999
+
+scheduler:
+  type: linear_decay
+  decay_start_epoch: 100
+
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  data_degraded: data/degraded
+  checkpoints: checkpoints
+  logs: logs
+
+wandb:
+  enabled: false
+  project: anatomy-preserving-ultrasound
+  entity: null

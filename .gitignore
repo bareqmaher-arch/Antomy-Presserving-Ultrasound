@@ -1,0 +1,43 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Dataset — download from Kaggle (see README)
+data/raw/
+data/processed/
+data/degraded/
+
+# Trained model checkpoints — large binaries
+checkpoints/
+
+# Training logs
+logs/
+wandb/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# Word documents
+*.docx
+~$*.docx
+
+# Unpacked docx working directories
+unpacked_*/
+
+# Personal session notes
+medical.md
+
+# Temp / OS files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Results backup folder (duplicate of figures/)
+Resualt after testing/

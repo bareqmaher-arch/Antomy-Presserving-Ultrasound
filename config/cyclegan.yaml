@@ -1,0 +1,20 @@
+model: cyclegan
+
+generator:
+  type: resnet
+  n_blocks: 9
+  ngf: 64
+  norm: instance
+  use_dropout: false
+
+discriminator:
+  type: patchgan
+  n_layers: 3
+  ndf: 64
+  norm: instance
+
+loss_weights:
+  lambda_cycle: 10.0     # cycle-consistency loss (A→B→A and B→A→B)
+  lambda_idt: 5.0        # identity loss
+  lambda_anat: 0.5       # anatomy-preserving loss (applied to G_A only)
+  lambda_adv: 1.0        # adversarial loss
